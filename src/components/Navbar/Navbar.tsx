@@ -9,27 +9,21 @@ import { jwtDecode } from "jwt-decode";
 
 const Navbar = () => {
   const [isShow, setIsShow] = useState<boolean>(false);
-  const [userName, setUserName] = useState<{
-    id: string;
-    name: string;
-  }>();
+  const [userName, setUserName] = useState<string | null>(null); // Initialize userName as null
   const toggleDarkMode = () => {
     document.documentElement.classList.toggle("dark");
   };
 
   const user = useContext(UserContext);
 
-  if (!user) {
-    throw new Error("SomeComponent must be used within a UserContextProvider");
-  }
-
-  const { userToken } = user;
   useEffect(() => {
-    if (userToken) {
-      const decodedToken: any = jwtDecode(userToken);
-      setUserName(decodedToken);
+    if (user?.userToken) {
+      const decodedToken: any = jwtDecode(user.userToken);
+      setUserName(decodedToken.name);
+    } else {
+      setUserName(null); // Reset userName when user logs out
     }
-  }, [userToken]);
+  }, [user?.userToken]);
 
   return (
     <nav className="dark:bg-[#222831]">
@@ -38,15 +32,17 @@ const Navbar = () => {
         <Logo />
         <HamburgerIcon isShow={isShow} setIsShow={setIsShow} />
         <NavItem isShow={isShow} />
-        <p className="font-bold dark:text-white">
-          Hello{" "}
-          <span className="capitalize font-bold underline">
-            {userName?.name}
-          </span>
-          !
-        </p>
-
-        <DarkModeToggle toggleDarkMode={toggleDarkMode} />
+        {userName && ( // Check if userName is truthy to display the greeting
+          <p className="font-bold dark:text-white">
+            Hello{" "}
+            <span className="capitalize font-bold underline">{userName}</span>!
+          </p>
+        )}
+        {user ? ( // Conditionally render login/logout text
+          <DarkModeToggle toggleDarkMode={toggleDarkMode} />
+        ) : (
+          <p className="font-bold dark:text-white">Login</p>
+        )}
       </div>
       <hr className="bg-gray-900 h-[1px]" />
     </nav>
