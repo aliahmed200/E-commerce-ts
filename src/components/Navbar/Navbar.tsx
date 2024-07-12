@@ -33,7 +33,7 @@ const Navbar = () => {
         <HamburgerIcon isShow={isShow} setIsShow={setIsShow} />
         <NavItem isShow={isShow} />
         {userName && ( // Check if userName is truthy to display the greeting
-          <p className="font-bold dark:text-white">
+          <p className="hidden md:block font-bold dark:text-white">
             Hello{" "}
             <span className="capitalize font-bold underline">{userName}</span>!
           </p>

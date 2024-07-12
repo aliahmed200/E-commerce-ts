@@ -63,7 +63,7 @@ const Carts = ({
   };
 
   return (
-    <article className="flex flex-col mb-10 w-full sm:w-[50%] md:w-[33.33%] lg:w-[25%] xl:w-[20%]">
+    <article className="flex flex-col mb-10 w-[40%] h-[40%] md:h[33.33%] lg:h-[25%] xl:h-[20%] md:w-[33.33%] lg:w-[25%] xl:w-[20%]">
       <figure className="flex flex-col items-center justify-between rounded bg-[#F5F5F5] mb-3 group relative">
         <Link to={`/details/${id}`} className="w-full flex justify-center">
           <img className="w-[50%] mt-7" src={image} alt={title} />
@@ -82,7 +82,7 @@ const Carts = ({
       <div className="flex justify-center space-x-2 items-center">
         <span className="text-[#DB4444] font-medium">${price}</span>
         <div className="flex text-[#FFAD33]">{getStarElements()}</div>
-        <span className="text-[#7D8184] font-semibold text-sm">
+        <span className="text-[#7D8184] font-semibold text-sm hidden md:block">
           ({quantity})
         </span>
       </div>

@@ -11,7 +11,7 @@ const CircleSection = ({ className }: Iprops) => {
       <div
         className={`border border-gray-500 w-full py-6 rounded ${className}`}
       >
-        <div className="flex flex-wrap gap-y-4 justify-around pt-12 pb-12">
+        <div className="flex flex-wrap gap-y-6 justify-around pt-6 pb-6  md:pt-12 md:pb-12">
           {CIRCLE_INFO.map((item, index) => (
             <Circle
               key={index}
