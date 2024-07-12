@@ -97,10 +97,10 @@ const Details = () => {
 
   return (
     <div className="flex flex-col-reverse flex-wrap lg:flex-row lg:flex-nowrap justify-center space-y-4 items-center gap-x-10 lg:items-start py-12">
-      <div>
+      <div className="text-center">
         {imagesToDisplay?.map((item, index) => (
           <img
-            className="w-[150px] h-[138px] inline-block mx-4 lg:block lg:mx-0 py-2 rounded border shadow-md mt-4"
+            className="w-[120px] h-[108px] md:w-[150px] md:h-[138px] inline-block mx-2 md:mx-4 lg:block lg:mx-0 py-2 rounded border shadow-md mt-4"
             key={index}
             src={item}
             alt="product image"
@@ -109,7 +109,7 @@ const Details = () => {
       </div>
       <div>
         <img
-          className="w-[550px] h-[600px] rounded border shadow-md"
+          className="md:w-[550px] md:h-[600px] rounded border shadow-md"
           src={product?.imageCover}
           alt={product?.title}
         />

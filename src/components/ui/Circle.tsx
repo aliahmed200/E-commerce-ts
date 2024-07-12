@@ -8,7 +8,7 @@ interface Iprops {
 
 const Circle = ({ icon, mainTitle, secondTitle }: Iprops) => {
   return (
-    <div className="flex flex-col justify-center items-center w-72">
+    <div className="flex flex-col justify-center items-center w-65">
       <div className="flex items-center justify-center md:w-[85px] md:h-[85px] bg-gray-400 dark:bg-gray-300 rounded-full mb-3">
         <div className="text-white bg-black dark:text-black dark:bg-white rounded-full p-4">
           {icon}
