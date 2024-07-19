@@ -7,6 +7,7 @@ import Button from "../../components/ui/Button";
 import { TbTruckDelivery } from "react-icons/tb";
 import { CartContext } from "../../context/CartContext";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 interface Iproduct {
   imageCover: string;
@@ -97,6 +98,10 @@ const Details = () => {
 
   return (
     <div className="flex flex-col-reverse flex-wrap lg:flex-row lg:flex-nowrap justify-center space-y-4 items-center gap-x-10 lg:items-start py-12">
+       <Helmet>
+        <meta charSet="utf-8" />
+        <title>Product Details</title>
+      </Helmet>
       <div className="text-center">
         {imagesToDisplay?.map((item, index) => (
           <img

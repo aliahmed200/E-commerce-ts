@@ -5,6 +5,7 @@ import ErrorMessage from "../../components/ui/ErrorMsg";
 import Button from "../../components/ui/Button";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
+import { Helmet } from "react-helmet";
 
 interface Iprops {}
 
@@ -38,6 +39,10 @@ const CheckOut = ({}: Iprops) => {
   });
   return (
     <div className="lg:px-24 px-12">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Check Out</title>
+      </Helmet>
       <p className="text-sm font-normal text-black my-14">
         <span className="text-[#7D8184]">Cart /</span> Online Payment
       </p>

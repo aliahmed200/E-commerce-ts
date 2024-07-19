@@ -2,12 +2,17 @@ import contact from "../../assets/About/happy-young-man-going-shopping-holding-b
 import Circle from "../../components/ui/Circle";
 import { CIRCLE_ABOUT_INFO, EMPLOYEE_INFO } from "../../components/data";
 import CircleSection from "../home/CircleSection";
+import { Helmet } from "react-helmet";
 
 interface Iprops {}
 
 const About = ({}: Iprops) => {
   return (
     <div className="py-8 px-4 md:px-8 lg:px-12 xl:px-24">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>About</title>
+      </Helmet>
       <p className="text-sm font-normal text-black dark:text-white mb-8 md:mb-12">
         <span className="text-[#7D8184]">Home /</span> About
       </p>

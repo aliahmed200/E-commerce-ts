@@ -9,6 +9,7 @@ import ErrorMessage from "../../components/ui/ErrorMsg";
 import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 
 const Register = () => {
   const [error, setError] = useState(null);
@@ -59,6 +60,10 @@ const Register = () => {
 
   return (
     <div className="lg:flex items-between gap-x-36 xl:gap-x-80 items-center py-12">
+       <Helmet>
+        <meta charSet="utf-8" />
+        <title>Register</title>
+      </Helmet>
       <img
         className="sm:max-w-[100%] lg:max-w-[600px] xl:max-w-[700px] lg:-ml-28 rounded-xl lg:rounded-r-lg mb-6 lg:mb-0"
         src={AuthImage}

@@ -1,4 +1,4 @@
-import { ReactNode, useContext } from "react";
+import { memo, ReactNode, useContext } from "react";
 import { AiFillStar, AiOutlineStar } from "react-icons/ai";
 import { CartContext } from "../../context/CartContext";
 import toast from "react-hot-toast";
@@ -11,8 +11,7 @@ interface Iprops {
   quantity: number;
   ratingsAverage: number;
   image: string;
-  icon: ReactNode;
-  AddProductToWishList?: (id: string) => Promise<void>;
+  icon?: ReactNode;
 }
 
 const Carts = ({
@@ -90,4 +89,4 @@ const Carts = ({
   );
 };
 
-export default Carts;
+export default memo(Carts);

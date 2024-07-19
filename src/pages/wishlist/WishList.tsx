@@ -8,6 +8,7 @@ import Button from "../../components/ui/Button";
 import { useEffect, useState } from "react";
 import ProductSection from "../home/ProductSection";
 import SectionTitle from "../../components/ui/SectionTitle";
+import { Helmet } from "react-helmet";
 
 const WishList = () => {
   const [showAll, setShowAll] = useState(false);
@@ -73,6 +74,10 @@ const WishList = () => {
 
   return (
     <div className="py-12">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>WishList</title>
+      </Helmet>
       <h5 className="text-3xl font-semibold mb-8">
         wishlist (
         <span className="font-bold">{productFromWishList.length}</span>)
@@ -101,12 +106,7 @@ const WishList = () => {
                 quantity={item.quantity}
                 image={item.imageCover}
                 icon={
-                  <span
-                    onClick={() => {
-                      console.log("hi");
-                    }}
-                    className="absolute end-3 top-3 cu"
-                  >
+                  <span className="absolute end-3 top-3 cu">
                     <MdDeleteForever
                       onClick={() => {
                         deleteProductFromWishList(item._id);

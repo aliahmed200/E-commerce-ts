@@ -10,6 +10,7 @@ import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserToken";
 import { NavLink, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet";
 const Login = () => {
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -58,6 +59,10 @@ const Login = () => {
 
   return (
     <div className="lg:flex items-between gap-x-36 xl:gap-x-80 items-center py-12">
+       <Helmet>
+        <meta charSet="utf-8" />
+        <title>Login</title>
+      </Helmet>
       <img
         className="sm:max-w-[100%] lg:max-w-[600px] xl:max-w-[700px] lg:-ml-28 rounded-xl lg:rounded-r-lg mb-6 lg:mb-0"
         src={AuthImage}

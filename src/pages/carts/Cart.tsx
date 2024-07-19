@@ -6,6 +6,7 @@ import CartTotal from "./CartTotal";
 import { CartContext } from "../../context/CartContext";
 import { NavLink } from "react-router-dom";
 import { UserContext } from "../../context/UserToken";
+import { Helmet } from "react-helmet";
 
 interface Product {
   _id: string;
@@ -99,6 +100,10 @@ const Cart: React.FC = () => {
 
   return (
     <div className="py-12">
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Carts</title>
+      </Helmet>
       <p className="text-sm font-normal text-black dark:text-white pb-6">
         <span className="text-[#7D8184]">Home /</span> Cart
       </p>

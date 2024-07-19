@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import contact from "../../assets/contact/Frame 858.png";
 import Button from "../../components/ui/Button";
 import Input from "../../components/ui/Input";
@@ -11,6 +12,10 @@ const Contact = ({}: Iprops) => {
 
   return (
     <div className="flex flex-col items-center md:items-start md:flex-row  gap-x-6 py-12">
+       <Helmet>
+        <meta charSet="utf-8" />
+        <title>Contact</title>
+      </Helmet>
       <div >
         <img src={contact} alt="" />
       </div>

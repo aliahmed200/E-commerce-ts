@@ -33,10 +33,10 @@ const ProductSection = ({ numberShow, sectionTitle }: Iprops) => {
   );
 
   const toggleShowAll = () => {
-    setShowAll(!showAll);
+    setShowAll((prev) => !prev);
   };
 
-  const AddToWishList = async (id: string): Promise<void> => {
+  const AddToWishList = async (id: string) => {
     return await axios.post(
       `https://ecommerce.routemisr.com/api/v1/wishlist`,
       {
@@ -48,7 +48,7 @@ const ProductSection = ({ numberShow, sectionTitle }: Iprops) => {
     );
   };
 
-  const AddProductToWishList = async (id: string) => {
+  const AddProductToWishList = (id: string) => {
     toast.promise(AddToWishList(id), {
       loading: "Adding to wishlist...",
       success: (
@@ -79,24 +79,19 @@ const ProductSection = ({ numberShow, sectionTitle }: Iprops) => {
         <div className="flex flex-wrap items-center justify-between gap-x-[35px]">
           {products
             .slice(0, showAll ? products.length : numberShow)
-            .map((item, index) => (
+            .map((item) => (
               <Carts
-                key={index}
+                key={item._id}
                 id={item._id}
                 title={item.title}
                 price={item.price}
                 ratingsAverage={item.ratingsAverage}
                 quantity={item.quantity}
                 image={item.imageCover}
-                AddProductToWishList={AddProductToWishList}
                 icon={
-                  <span
-                    onClick={() => {
-                      AddProductToWishList(item._id);
-                    }}
-                    className="absolute end-3 top-3 cu"
-                  >
+                  <span className="absolute end-3 top-3 cursor-pointer">
                     <AiFillHeart
+                      onClick={() => AddProductToWishList(item._id)}
                       className="text-red-400 hover:text-red-700 cursor-pointer"
                       size={23}
                     />
@@ -106,11 +101,7 @@ const ProductSection = ({ numberShow, sectionTitle }: Iprops) => {
             ))}
 
           <div className="flex justify-center w-full">
-            <Button
-              onClick={() => {
-                toggleShowAll();
-              }}
-            >
+            <Button onClick={toggleShowAll}>
               {showAll ? "View Less Products" : "View All Products"}
             </Button>
           </div>

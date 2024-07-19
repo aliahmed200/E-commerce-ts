@@ -7,6 +7,7 @@ import CategoryBoxSection from "./CategoryBoxSection";
 import ProductSection from "./ProductSection";
 import CircleSection from "./CircleSection";
 import SectionTitle from "../../components/ui/SectionTitle";
+import { Helmet } from "react-helmet";
 
 const fetchCategories = async (): Promise<Icategory[]> => {
   const { data } = await axios.get(
@@ -22,6 +23,10 @@ const Home = () => {
 
   return (
     <>
+     <Helmet>
+        <meta charSet="utf-8" />
+        <title>Home</title>
+      </Helmet>
       <MainSection
         categories={categories || []}
         categoriesLoading={categoriesLoading}
